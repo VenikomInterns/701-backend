@@ -13,13 +13,13 @@ class CategoryController extends Controller
     public function index(): Response
     {
         return Inertia::render('Dashboard', ['categories' => Category::all()]);
-    }
+    }//good. Its much easier with compact('categories')
 
     public function show(Category $category): Response //Show products in a certain category
     {
         $category_id = $category->id; // Stored as variable because it is used twice (so we don't have to call the method twice)
         $products = Product::query()->where('category_id', $category_id)->with('pictures')->simplePaginate(3);
-
+        //why not sending whole category but parts of it ?  Actually, category has only 2 attributes
         return Inertia::render('ProductsByCategory', ['products' => $products, 'category_id' => $category_id, 'category_name' => $category->name]);
     }
 
@@ -29,8 +29,8 @@ class CategoryController extends Controller
             'name' => 'required|min:2'
         ]);
         Category::query()->create($validated);
-
-    }
+    
+    }//good
 
     public function update(Category $category, Request $request)
     {
@@ -40,6 +40,6 @@ class CategoryController extends Controller
 
         $category->update($validated);
 
-    }
+    } //good
 
 }

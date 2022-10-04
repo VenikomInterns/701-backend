@@ -31,4 +31,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/dashboard', [CategoryController::class, 'index'])->name('dashboard');
     Route::resource('category' , CategoryController::class)->only('store', 'show', 'update');
     Route::resource('product' , ProductController::class)->only('store', 'update', 'destroy', 'show');
+    //resource names should be plural
 });

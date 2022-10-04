@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
 
         return Inertia::render('ProductEdit', ['product' => $product, 'categories' => Category::all()]);
-    }
+    }//route is show but we are returning ProductEdit? hmm 
 
     public function store(Request $request)
     {
@@ -23,7 +23,7 @@ class ProductController extends Controller
             'name' => 'required|min:2',
             'price' => 'required|integer',
             'description' => 'required|min:2',
-            'category_id' => 'required|integer'
+            'category_id' => 'required|integer' //what if its not existing
         ]);
 
         Product::query()->create($validate);
@@ -36,7 +36,7 @@ class ProductController extends Controller
             'name' => 'required|min:2',
             'price' => 'required|integer',
             'description' => 'required|min:2',
-            'category_id' => 'required|integer'
+            'category_id' => 'required|integer'//what if its not existing
         ]);
 
         $product->update($validate);

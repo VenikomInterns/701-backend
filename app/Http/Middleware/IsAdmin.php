@@ -20,7 +20,7 @@ class IsAdmin
     {
         if (!auth()->user()->is_admin) {
             return redirect('/');
-        }
+        }//good
         return $next($request);
     }
 }

@@ -24,7 +24,7 @@ class ProductSeeder extends Seeder
                     'price' => 100,
                     'description' => Str::random(20),
                 ]);
-            }
+            } //good. but this looks more like Factory. You can use factories instead
         }
-    }
+    } //good
 }

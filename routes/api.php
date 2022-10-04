@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//when we have /products/{id}, we expect to receive productId not category_id.
 Route::get('/products/{category}', [APIControler::class, 'products'])->name('Api_products');
 Route::get('/categories', [APIControler::class, 'categories'])->name('Api_categories');
+//its much easier if you use apiResources. Also this doesnt follow laravel route naming convetions.

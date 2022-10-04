@@ -22,5 +22,6 @@ class CategorySeeder extends Seeder
         ])->each(function ($category) {
             return Category::query()->create($category);
         });
+        //good. You can use createMany so u dont need to foreach this array
     }
 }

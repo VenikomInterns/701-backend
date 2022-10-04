@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'is_admin' => true,
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin123'),
-        ]);
+        ]); //excellent
         User::query()->create([
             'name' => 'Dushan',
             'is_admin' => false,
